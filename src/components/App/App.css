@@ -1,0 +1,12 @@
+@import '../../vendor/fonts.css';
+
+.page {
+    background-color: #F3F3F3;
+    font-family: "Cabinet";
+}
+
+.page__content {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 20px;
+}

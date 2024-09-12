@@ -1,0 +1,22 @@
+.modal__content_type_image {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    border-radius: 2%;
+}
+
+.modal__image {
+    border-radius: 2% 2% 0% 0%;
+}
+
+.modal__close {
+    background-color: transparent;
+}
+
+.modal__caption {
+    margin: 20px 0 12px 32px;
+}
+
+.modal__weather {
+    margin: 12px 0 32px 32px;
+}
