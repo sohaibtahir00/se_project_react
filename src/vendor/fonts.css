@@ -1,20 +1,20 @@
 @font-face {
-    font-family: "Cabinet";
-    font-style: bold;
-    font-weight: 700;
-    src: url("./fonts/CabinetGrotesk-Bold.woff") format("woff");
-  }
+  font-family: "Cabinet";
+  font-style: bold;
+  font-weight: 700;
+  src: url("./fonts/CabinetGrotesk-Bold.woff") format("woff");
+}
 
-  @font-face {
-    font-family: "Cabinet";
-    font-style: normal;
-    font-weight: 700;
-    src: url("./fonts/CabinetGrotesk-Regular.woff") format("woff");
-  }
+@font-face {
+  font-family: "Cabinet";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./fonts/CabinetGrotesk-Regular.woff") format("woff");
+}
 
-  @font-face {
-    font-family: "Cabinet";
-    font-style: medium;
-    font-weight: 500;
-    src: url("./fonts/CabinetGrotesk-Medium.woff") format("woff");
-  }
+@font-face {
+  font-family: "Cabinet";
+  font-style: medium;
+  font-weight: 500;
+  src: url("./fonts/CabinetGrotesk-Medium.woff") format("woff");
+}
