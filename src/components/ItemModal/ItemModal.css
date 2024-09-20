@@ -1,22 +1,57 @@
 .modal__content_type_image {
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    border-radius: 2%;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  position: relative;
+  padding: 0;
+  max-width: 496px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 20px;
 }
 
 .modal__image {
-    border-radius: 2% 2% 0% 0%;
+  border-radius: 2% 2% 0% 0%;
+  width: 100%;
+  height: 100%;
 }
 
-.modal__close {
-    background-color: transparent;
+.modal__close-btn {
+  background-color: transparent;
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  border: none;
+}
+
+.modal__close-btn:hover {
+  cursor: pointer;
 }
 
 .modal__caption {
-    margin: 20px 0 12px 32px;
+  margin: 20px 0 12px 32px;
 }
 
 .modal__weather {
-    margin: 12px 0 32px 32px;
+  margin: 12px 0 32px 32px;
+}
+
+.modal__footer {
+  position: relative;
+}
+
+.card__delete-btn {
+  background-color: transparent;
+  border: none;
+  color: #ff4d00;
+  font-weight: 700;
+  size: 20px;
+  line-height: 24px;
+  position: absolute;
+  margin-top: -88px;
+  margin-left: 380px;
+}
+
+.card__delete-btn:hover {
+  cursor: pointer;
 }

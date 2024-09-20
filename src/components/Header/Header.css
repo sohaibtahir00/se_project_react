@@ -17,7 +17,7 @@
 }
 
 .header__add-clothes-btn {
-  margin: 0 20px 0 auto;
+  margin: 0 20px 0;
   border: none;
   background-color: transparent;
   font-size: 20px;
@@ -38,4 +38,9 @@
   margin: 0;
   font-size: 20px;
   line-height: 24.8px;
+}
+
+.header__link {
+  text-decoration: none;
+  color: black;
 }

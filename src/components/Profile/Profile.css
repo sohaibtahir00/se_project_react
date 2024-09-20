@@ -1,0 +1,8 @@
+.profile {
+  display: flex;
+  gap: 116px;
+}
+
+.profile__sidebar {
+  display: inline-block;
+}
