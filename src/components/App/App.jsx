@@ -8,7 +8,7 @@ import ItemModal from "../ItemModal/ItemModal.jsx";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi.js";
 import { coordinates, APIkey } from "../../utils/constants.js";
 import Footer from "../Footer/Footer.jsx";
-import { CurrentTemperatureUnitContext } from "../Contexts/CurrentTemperatureUnitContext.js";
+import { CurrentTemperatureUnitContext } from "../Contexts/CurrentTemperatureUnitContext.jsx";
 import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 import Profile from "../Profile/Profile.jsx";
 import { getItems, addItem, deleteItem } from "../../utils/api.js";

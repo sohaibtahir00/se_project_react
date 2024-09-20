@@ -4,7 +4,7 @@ import {
   weatherOptions,
   defaultWeatherOptions,
 } from "../../utils/constants.js";
-import { CurrentTemperatureUnitContext } from "../Contexts/CurrentTemperatureUnitContext.js";
+import { CurrentTemperatureUnitContext } from "../Contexts/CurrentTemperatureUnitContext.jsx";
 
 function WeatherCard({ weatherData }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
