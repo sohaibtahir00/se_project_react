@@ -1,6 +1,14 @@
 .sidebar {
   display: flex;
   gap: 16px;
+  align-items: left;
+  flex-direction: column;
+  width: 230px;
+}
+
+.sidebar__userinfo {
+  display: flex;
+  gap: 16px;
   align-items: center;
 }
 
@@ -8,4 +16,38 @@
   font-size: 20px;
   font-weight: 700;
   line-height: 24.8px;
+}
+
+.sidebar__avatar {
+  width: 40px;
+  height: 40px;
+  border: 1px;
+  border-radius: 50%;
+}
+
+.sidebar__buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 8px;
+}
+
+.sidebar__edit-profile {
+  border: none;
+  background-color: transparent;
+  text-align: left;
+}
+
+.sidebar__edit-profile:hover {
+  cursor: pointer;
+}
+
+.sidebar__logout-profile {
+  border: none;
+  background-color: transparent;
+  text-align: left;
+}
+
+.sidebar__logout-profile:hover {
+  cursor: pointer;
 }

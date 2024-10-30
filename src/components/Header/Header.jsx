@@ -1,15 +1,22 @@
 import { Link } from "react-router-dom";
-
 import "./Header.css";
 import logo from "../../assets/logo.svg";
-import avatar from "../../assets/avatar.svg";
+import avatarPlaceholder from "../../assets/avatar.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 
-function Header({ handleAddClick, weatherData }) {
+function Header({
+  handleAddClick,
+  weatherData,
+  handleRegister,
+  handleLogin,
+  isLoggedIn,
+  currentUser,
+}) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
   });
+
   return (
     <header className="header">
       <Link to="/">
@@ -19,20 +26,45 @@ function Header({ handleAddClick, weatherData }) {
         {currentDate}, {weatherData.city}
       </p>
       <ToggleSwitch className="header__toggleswitch" />
-      <button
-        className="header__add-clothes-btn"
-        type="button"
-        onClick={handleAddClick}
-      >
-        + Add clothes
-      </button>
 
-      <Link to="/profile" className="header__link">
-        <div className="header__user-container">
-          <p className="header__username">Sohaib Tahir</p>
-          <img src={avatar} alt="user avatar" className="header__avatar" />
-        </div>
-      </Link>
+      {!isLoggedIn ? (
+        <>
+          <button
+            className="header__signup-btn"
+            type="button"
+            onClick={handleRegister}
+          >
+            Sign Up
+          </button>
+          <button
+            className="header__login-btn"
+            type="button"
+            onClick={handleLogin}
+          >
+            Login
+          </button>
+        </>
+      ) : (
+        <>
+          <button
+            className="header__add-clothes-btn"
+            type="button"
+            onClick={handleAddClick}
+          >
+            + Add clothes
+          </button>
+          <Link to="/profile" className="header__link">
+            <div className="header__user-container">
+              <p className="header__username">{currentUser?.name}</p>
+              <img
+                src={currentUser?.avatar || avatarPlaceholder}
+                alt="user avatar"
+                className="header__avatar"
+              />
+            </div>
+          </Link>
+        </>
+      )}
     </header>
   );
 }

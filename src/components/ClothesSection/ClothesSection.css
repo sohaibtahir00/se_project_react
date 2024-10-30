@@ -19,6 +19,10 @@
   background-color: transparent;
 }
 
+.clothes-section__btn:hover {
+  cursor: pointer;
+}
+
 .clothes-section__items {
   display: flex;
   flex-wrap: wrap;
