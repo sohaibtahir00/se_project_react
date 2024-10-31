@@ -2,7 +2,13 @@ import { useState } from "react";
 import "./LoginModal.css";
 import closePreview from "../../assets/close-btn.svg";
 
-function LoginModal({ activeModal, onClose, onLogin, loginError }) {
+function LoginModal({
+  activeModal,
+  onClose,
+  onLogin,
+  loginError,
+  handleRegister,
+}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -63,7 +69,7 @@ function LoginModal({ activeModal, onClose, onLogin, loginError }) {
             <button
               className="modal__login-signup-btn"
               type="button"
-              onClick={onClose}
+              onClick={handleRegister}
             >
               or Sign Up
             </button>

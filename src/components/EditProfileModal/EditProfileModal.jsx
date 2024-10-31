@@ -1,23 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./EditProfileModal.css";
 import closePreview from "../../assets/close-btn.svg";
 
-function EditProfileModal({ isOpen, onClose, onUpdateUser }) {
+function EditProfileModal({ isOpen, onClose, onUpdateUser, currentUser }) {
   const [name, setName] = useState("");
   const [avatarUrl, setAvatarUrl] = useState("");
 
+  useEffect(() => {
+    if (currentUser) {
+      setName(currentUser.name || "");
+      setAvatarUrl(currentUser.avatar || "");
+    }
+  }, [currentUser]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
     onUpdateUser({
       name,
-      avatarUrl,
+      avatar: avatarUrl,
     });
   };
 
   return (
     <div className={`modal ${isOpen ? "modal_opened" : ""}`}>
-      {" "}
       <div className="modal__edit">
         <button className="modal__close-btn" type="button" onClick={onClose}>
           <img
@@ -31,7 +36,7 @@ function EditProfileModal({ isOpen, onClose, onUpdateUser }) {
           <label htmlFor="editName">
             Name
             <input
-              id="eidtName"
+              id="editName"
               type="text"
               className="modal__label"
               placeholder="Name"

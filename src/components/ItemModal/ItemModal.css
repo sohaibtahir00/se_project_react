@@ -12,8 +12,7 @@
 
 .modal__image {
   border-radius: 2% 2% 0% 0%;
-  width: 100%;
-  height: 100%;
+  height: 498px;
 }
 
 .modal__close-btn {

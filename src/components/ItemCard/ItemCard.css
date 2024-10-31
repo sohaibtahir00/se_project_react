@@ -1,46 +1,6 @@
-/* .card {
-  width: 323px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  border: 1px solid #0000004d;
-  border-radius: 20px;
-}
-
-.card__img-info {
-  justify-content: space-around;
-}
-
-.card__name {
-  position: absolute;
-  top: 15px;
-  margin: 0;
-  padding: 2px 12px;
-  background-color: #ffffff;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 20px;
-  border-radius: 4px;
-}
-
-.card__like-btn {
-  position: absolute;
-  border: none;
-  width: 18px;
-  height: 15px;
-  background-color: transparent;
-  top: 15px;
-  right: 80px;
-  margin: 0;
-}
-
-.card__image {
-  width: 100%;
-  border-radius: 20px;
-} */
-
 .card {
-  width: 323px;
+  width: 325px;
+  height: 326px;
   position: relative;
   display: flex;
   justify-content: center;

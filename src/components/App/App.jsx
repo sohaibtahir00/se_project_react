@@ -105,8 +105,17 @@ function App() {
 
   const handleAddItemSubmit = (newItem) => {
     addItem(newItem)
-      .then((addedItem) => {
-        setClothingItems([addedItem, ...clothingItems]);
+      .then((response) => {
+        const addedItem = response.data;
+
+        if (addedItem && addedItem.imageUrl && addedItem.name) {
+          setClothingItems([addedItem, ...clothingItems]);
+        } else {
+          console.error(
+            "Added item is missing necessary properties:",
+            addedItem
+          );
+        }
         closeActiveModal();
       })
       .catch(console.error);
@@ -252,17 +261,20 @@ function App() {
             card={selectedCard}
             onClose={closeActiveModal}
             onDelete={handleDeleteItem}
+            currentUser={currentUser}
           />
           <RegisterModal
             activeModal={activeModal}
             onClose={closeActiveModal}
             onRegister={handleRegisterSubmit}
+            handleLogin={handleLogin}
           />
           <LoginModal
             activeModal={activeModal}
             onClose={closeActiveModal}
             onLogin={handleLoginSubmit}
             loginError={loginError}
+            handleRegister={handleRegister}
           />
           <EditProfileModal
             isOpen={activeModal === "edit-profile"}

@@ -41,10 +41,6 @@
   border-radius: 20px;
 }
 
-.modal__label {
-  padding-bottom: 24px;
-}
-
 .modal__form {
   display: flex;
   flex-direction: column;
@@ -69,12 +65,8 @@
   padding-bottom: 12px;
 }
 
-.modal__label_type_radio {
-  padding-bottom: 8px;
-}
-
 .modal__label_type_radio:last-child {
-  padding-bottom: 32px;
+  padding-bottom: 24px;
 }
 
 .modal__submit {
