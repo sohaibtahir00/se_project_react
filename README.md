@@ -9,4 +9,4 @@ Currently, two official plugins are available:
 
 # Backend Deployment
 
-[[Deployment link](https://sohaibtahir00.github.io/se_project_express/)]
+[[Deployment link](https://github.com/sohaibtahir00/se_project_express.git)]
