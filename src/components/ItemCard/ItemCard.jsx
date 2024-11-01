@@ -1,8 +1,12 @@
 import "./ItemCard.css";
 import likeBtn from "../../assets/like.svg";
 import likedBtn from "../../assets/liked.svg";
+import { useContext } from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-function ItemCard({ item, onCardClick, onCardLike, currentUser }) {
+function ItemCard({ item, onCardClick, onCardLike }) {
+  const { currentUser } = useContext(CurrentUserContext);
+
   const isLiked = item.likes && item.likes.includes(currentUser?._id);
 
   const handleCardClick = () => {

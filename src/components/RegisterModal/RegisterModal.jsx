@@ -1,6 +1,6 @@
 import { useState } from "react";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./RegisterModal.css";
-import closePreview from "../../assets/close-btn.svg";
 
 function RegisterModal({ activeModal, onClose, onRegister, handleLogin }) {
   const [email, setEmail] = useState("");
@@ -16,90 +16,76 @@ function RegisterModal({ activeModal, onClose, onRegister, handleLogin }) {
   };
 
   return (
-    <div
-      className={`modal ${activeModal === "register" ? "modal_opened" : ""}`}
+    <ModalWithForm
+      title="Sign Up"
+      buttonText="Sign Up"
+      isOpen={activeModal === "register"}
+      onClose={onClose}
+      onSubmit={handleSubmit}
+      isSubmitDisabled={isSubmitDisabled}
     >
-      <div className="modal__register">
-        <button className="modal__close-btn" type="button" onClick={onClose}>
-          <img
-            src={closePreview}
-            alt="close button"
-            className="modal__close-btn-img"
-          />
+      <label htmlFor="registerEmail" className="modal__label">
+        Email
+        <input
+          id="registerEmail"
+          name="email"
+          type="email"
+          className="modal__input"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+      </label>
+      <label htmlFor="registerPassword" className="modal__label">
+        Password
+        <input
+          id="registerPassword"
+          name="password"
+          type="password"
+          className="modal__input"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+      </label>
+      <label htmlFor="registerName" className="modal__label">
+        Name
+        <input
+          id="registerName"
+          name="name"
+          type="text"
+          className="modal__input"
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
+      </label>
+      <label htmlFor="registerAvatarUrl" className="modal__label">
+        Avatar URL
+        <input
+          id="registerAvatarUrl"
+          name="avatarUrl"
+          type="url"
+          className="modal__input"
+          placeholder="Avatar URL"
+          value={avatarUrl}
+          onChange={(e) => setAvatarUrl(e.target.value)}
+          required
+        />
+      </label>
+      <div className="modal__register-buttons">
+        <button
+          className="modal__register-login-btn"
+          type="button"
+          onClick={handleLogin}
+        >
+          or Log In
         </button>
-        <h2 className="modal__register-title">Sign Up</h2>
-        <form className="modal__register-inputs" onSubmit={handleSubmit}>
-          <label htmlFor="registerEmail">
-            Email
-            <input
-              id="registerEmail"
-              name="email"
-              type="email"
-              className="modal__label"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </label>
-          <label htmlFor="registerPassword">
-            Password
-            <input
-              id="registerPassword"
-              name="password"
-              type="password"
-              className="modal__label"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </label>
-          <label htmlFor="registerName">
-            Name
-            <input
-              id="registerName"
-              name="name"
-              type="text"
-              className="modal__label"
-              placeholder="Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-          </label>
-          <label htmlFor="registerAvatarUrl">
-            Avatar URL
-            <input
-              id="registerAvatarUrl"
-              name="avatarUrl"
-              type="url"
-              className="modal__label"
-              placeholder="Avatar URL"
-              value={avatarUrl}
-              onChange={(e) => setAvatarUrl(e.target.value)}
-              required
-            />
-          </label>
-          <div className="modal__register-buttons">
-            <button
-              className="modal__register-signup-btn"
-              type="submit"
-              disabled={isSubmitDisabled}
-            >
-              Sign Up
-            </button>
-            <button
-              className="modal__register-login-btn"
-              type="button"
-              onClick={handleLogin}
-            >
-              or Log In
-            </button>
-          </div>
-        </form>
       </div>
-    </div>
+    </ModalWithForm>
   );
 }
 

@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Profile.css";
 import ClothesSection from "../ClothesSection/ClothesSection";
 import SideBar from "../SideBar/SideBar";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 function Profile({
   clothingItems,
   handleCardClick,
   handleAddClick,
-  currentUser,
   onEditProfile,
   onLogout,
   onCardLike,
 }) {
+  const { currentUser } = useContext(CurrentUserContext);
+
   return (
     <div className="profile">
       <section className="profile__sidebar">

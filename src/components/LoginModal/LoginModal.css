@@ -1,69 +1,5 @@
-.modal__login {
-  display: flex;
-  flex-direction: column;
-  background-color: #ffffff;
-  position: relative;
-  padding: 0;
-  max-width: 496px;
-  width: 100%;
-  box-sizing: border-box;
-  border-radius: 20px;
-}
-
-.modal__close-btn {
-  position: absolute;
-  top: 30px;
-  right: 28px;
-  border: none;
-}
-
-.modal__close-btn:hover {
-  cursor: pointer;
-}
-
-.modal__login-title {
-  margin: 0;
-  padding: 28px 0 28px 24px;
-}
-
-.modal__login-inputs {
-  background-color: #ffffff;
-  position: relative;
-  padding: 0 28px 36px;
-  max-width: 496px;
-  width: 100%;
-  box-sizing: border-box;
-  border-radius: 20px;
-}
-
 .modal__label {
   margin-bottom: 8px;
-  padding: 0;
-  flex-direction: column;
-  outline: 0;
-  border-width: 0 0 2px;
-  width: 100%;
-}
-
-.modal__login-inputs {
-  display: block;
-  outline: 0;
-  margin-top: 8px;
-}
-
-.modal__login-btn {
-  width: 73px;
-  height: 36px;
-  color: #ffffff;
-  border-radius: 4px;
-  background-color: #0000004d;
-  cursor: not-allowed;
-  border: none;
-}
-
-.modal__login-btn:not(:disabled) {
-  background-color: #000000;
-  cursor: pointer;
 }
 
 .modal__login-signup-btn {
@@ -73,6 +9,8 @@
   background-color: #ffffff;
   border-radius: 4px;
   border: none;
+  position: absolute;
+  right: 250px;
 }
 
 .modal__login-signup-btn:hover {

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import "./App.css";
 import Header from "../Header/Header.jsx";
@@ -38,7 +38,7 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [token, setToken] = useState(localStorage.getItem("token") || "");
-  const [currentUser, setCurrentUser] = useState(null);
+  const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -139,7 +139,6 @@ function App() {
       ? addCardLike(id, token)
           .then((response) => {
             const updatedCard = response.data;
-            console.log("Updated Card after Like:", updatedCard);
             setClothingItems((cards) =>
               cards.map((item) => (item._id === id ? updatedCard : item))
             );
@@ -148,7 +147,6 @@ function App() {
       : removeCardLike(id, token)
           .then((response) => {
             const updatedCard = response.data;
-            console.log("Updated Card after Unlike:", updatedCard);
             setClothingItems((cards) =>
               cards.map((item) => (item._id === id ? updatedCard : item))
             );
@@ -207,82 +205,75 @@ function App() {
       <CurrentTemperatureUnitContext.Provider
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
-        <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }}>
-          <div className="page__content">
-            <Header
-              handleAddClick={handleAddClick}
-              handleRegister={handleRegister}
-              handleLogin={handleLogin}
-              weatherData={weatherData}
-              isLoggedIn={isLoggedIn}
-              currentUser={currentUser}
-            />
+        <div className="page__content">
+          <Header
+            handleAddClick={handleAddClick}
+            handleRegister={handleRegister}
+            handleLogin={handleLogin}
+            weatherData={weatherData}
+            isLoggedIn={isLoggedIn}
+          />
 
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <Main
-                    weatherData={weatherData}
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Main
+                  weatherData={weatherData}
+                  handleCardClick={handleCardClick}
+                  clothingItems={clothingItems}
+                  onCardLike={handleCardLike}
+                  isLoggedIn={isLoggedIn}
+                />
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <Profile
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
+                    handleAddClick={handleAddClick}
+                    onEditProfile={handleEditProfile}
                     onCardLike={handleCardLike}
-                    isLoggedIn={isLoggedIn}
-                    currentUser={currentUser}
+                    onLogout={handleLogout}
                   />
-                }
-              />
-              <Route
-                path="/profile"
-                element={
-                  <ProtectedRoute isLoggedIn={isLoggedIn}>
-                    <Profile
-                      handleCardClick={handleCardClick}
-                      clothingItems={clothingItems}
-                      handleAddClick={handleAddClick}
-                      currentUser={currentUser}
-                      onEditProfile={handleEditProfile}
-                      onCardLike={handleCardLike}
-                      onLogout={handleLogout}
-                    />
-                  </ProtectedRoute>
-                }
-              />
-            </Routes>
-            <Footer />
-          </div>
-          <AddItemModal
-            isOpen={activeModal === "add-garment"}
-            onAddItem={handleAddItemSubmit}
-            onCloseModal={closeActiveModal}
-          />
-          <ItemModal
-            activeModal={activeModal}
-            card={selectedCard}
-            onClose={closeActiveModal}
-            onDelete={handleDeleteItem}
-            currentUser={currentUser}
-          />
-          <RegisterModal
-            activeModal={activeModal}
-            onClose={closeActiveModal}
-            onRegister={handleRegisterSubmit}
-            handleLogin={handleLogin}
-          />
-          <LoginModal
-            activeModal={activeModal}
-            onClose={closeActiveModal}
-            onLogin={handleLoginSubmit}
-            loginError={loginError}
-            handleRegister={handleRegister}
-          />
-          <EditProfileModal
-            isOpen={activeModal === "edit-profile"}
-            onClose={closeActiveModal}
-            onUpdateUser={handleEditProfileSubmit}
-            currentUser={currentUser}
-          />
-        </CurrentUserContext.Provider>
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+          <Footer />
+        </div>
+        <AddItemModal
+          isOpen={activeModal === "add-garment"}
+          onAddItem={handleAddItemSubmit}
+          onCloseModal={closeActiveModal}
+        />
+        <ItemModal
+          activeModal={activeModal}
+          card={selectedCard}
+          onClose={closeActiveModal}
+          onDelete={handleDeleteItem}
+        />
+        <RegisterModal
+          activeModal={activeModal}
+          onClose={closeActiveModal}
+          onRegister={handleRegisterSubmit}
+          handleLogin={handleLogin}
+        />
+        <LoginModal
+          activeModal={activeModal}
+          onClose={closeActiveModal}
+          onLogin={handleLoginSubmit}
+          loginError={loginError}
+          handleRegister={handleRegister}
+        />
+        <EditProfileModal
+          isOpen={activeModal === "edit-profile"}
+          onClose={closeActiveModal}
+          onUpdateUser={handleEditProfileSubmit}
+        />
       </CurrentTemperatureUnitContext.Provider>
     </div>
   );

@@ -73,10 +73,13 @@
   width: 124px;
   height: 36px;
   color: #ffffff;
-  background-color: #000000;
+  background-color: #0000004d;
   border-radius: 4px;
+  cursor: not-allowed;
+  border: none;
 }
 
-.modal__submit {
+.modal__submit:not(:disabled) {
+  background-color: #000000;
   cursor: pointer;
 }

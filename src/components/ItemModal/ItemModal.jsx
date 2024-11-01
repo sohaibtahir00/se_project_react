@@ -1,7 +1,10 @@
 import "./ItemModal.css";
 import closePreview from "../../assets/preview-close-btn.svg";
+import { useContext } from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-function ItemModal({ activeModal, card, onClose, onDelete, currentUser }) {
+function ItemModal({ activeModal, card, onClose, onDelete }) {
+  const { currentUser } = useContext(CurrentUserContext);
   const isOwner = currentUser && currentUser._id === card.owner;
 
   return (

@@ -6,12 +6,7 @@ function checkResponse(res) {
 }
 
 function getItems() {
-  return fetch(`${baseUrl}/items`).then((res) => {
-    if (!res.ok) {
-      return Promise.reject(`Error: ${res.status}`);
-    }
-    return res.json();
-  });
+  return fetch(`${baseUrl}/items`).then(checkResponse);
 }
 
 function addItem(item) {
@@ -63,12 +58,7 @@ export const updateUserProfile = (updatedUserData) => {
       Authorization: `Bearer ${localStorage.getItem("token")}`,
     },
     body: JSON.stringify(updatedUserData),
-  }).then((res) => {
-    if (!res.ok) {
-      return Promise.reject(`Error: ${res.status}`);
-    }
-    return res.json();
-  });
+  }).then(checkResponse);
 };
 
 export { getItems, addItem, deleteItem, addCardLike, removeCardLike };

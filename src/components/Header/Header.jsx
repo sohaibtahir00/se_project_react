@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
 import "./Header.css";
 import logo from "../../assets/logo.svg";
 import avatarPlaceholder from "../../assets/avatar.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 function Header({
   handleAddClick,
@@ -10,8 +12,9 @@ function Header({
   handleRegister,
   handleLogin,
   isLoggedIn,
-  currentUser,
 }) {
+  const { currentUser } = useContext(CurrentUserContext);
+
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
