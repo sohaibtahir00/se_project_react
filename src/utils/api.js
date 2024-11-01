@@ -61,4 +61,11 @@ export const updateUserProfile = (updatedUserData) => {
   }).then(checkResponse);
 };
 
-export { getItems, addItem, deleteItem, addCardLike, removeCardLike };
+export {
+  getItems,
+  addItem,
+  deleteItem,
+  addCardLike,
+  removeCardLike,
+  checkResponse,
+};
