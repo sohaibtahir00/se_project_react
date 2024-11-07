@@ -1,4 +1,4 @@
-import { baseUrl } from "./constants";
+import { BASE_URL } from "./constants";
 
 function checkResponse(res) {
   console.log("Response:", res);
@@ -6,11 +6,11 @@ function checkResponse(res) {
 }
 
 function getItems() {
-  return fetch(`${baseUrl}/items`).then(checkResponse);
+  return fetch(`${BASE_URL}/items`).then(checkResponse);
 }
 
 function addItem(item) {
-  return fetch(`${baseUrl}/items`, {
+  return fetch(`${BASE_URL}/items`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -21,7 +21,7 @@ function addItem(item) {
 }
 
 function deleteItem(id) {
-  return fetch(`${baseUrl}/items/${id}`, {
+  return fetch(`${BASE_URL}/items/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -31,7 +31,7 @@ function deleteItem(id) {
 }
 
 function addCardLike(id, token) {
-  return fetch(`${baseUrl}/items/${id}/likes`, {
+  return fetch(`${BASE_URL}/items/${id}/likes`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -41,7 +41,7 @@ function addCardLike(id, token) {
 }
 
 function removeCardLike(id, token) {
-  return fetch(`${baseUrl}/items/${id}/likes`, {
+  return fetch(`${BASE_URL}/items/${id}/likes`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -51,7 +51,7 @@ function removeCardLike(id, token) {
 }
 
 export const updateUserProfile = (updatedUserData) => {
-  return fetch(`${baseUrl}/users/me`, {
+  return fetch(`${BASE_URL}/users/me`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",

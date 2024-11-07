@@ -1,6 +1,6 @@
-export const baseUrl =
+export const BASE_URL =
   process.env.NODE_ENV === "production"
-    ? "https://api.wt-wr.evils.in"
+    ? "https://api.wt-wr.dob.jp"
     : "http://localhost:3001";
 
 export const weatherOptions = [
